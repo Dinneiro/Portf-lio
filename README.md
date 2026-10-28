@@ -1,88 +1,72 @@
-🚀 Thiago Silva | Portfólio de Desenvolvedor
 
-Bem-vindo ao meu portfólio pessoal!
-Este projeto foi desenvolvido para apresentar minhas habilidades, projetos e tecnologias que utilizo no dia a dia como desenvolvedor.
+# Thiago Silva | Portfólio de Desenvolvedor
 
-📌 Sobre o Projeto
+> Portfólio pessoal para apresentar meus projetos, habilidades e minha evolução no desenvolvimento de software.
 
-Este portfólio tem como objetivo:
+## Sobre o projeto
 
-Apresentar minha identidade profissional
+Este repositório contém meu portfólio profissional, desenvolvido com HTML, CSS e JavaScript. O objetivo é reunir meus projetos em um único lugar, apresentar minhas tecnologias de estudo e facilitar o contato para oportunidades profissionais.
 
-Destacar projetos desenvolvidos
+## Tecnologias
 
-Mostrar minhas principais habilidades técnicas
+- HTML5 — estrutura e semântica
+- CSS3 — layout, animações e responsividade
+- JavaScript — interações e funcionalidades
+- Git e GitHub — versionamento e publicação
 
-Facilitar o contato para oportunidades e colaborações
+## Projetos em destaque
 
-O design segue uma proposta moderna, minimalista e responsiva, com foco em experiência do usuário e performance.
+### 🌿 Loja Verde
+Projeto de e-commerce voltado ao segmento de jardinagem.
 
-🧠 Tecnologias Utilizadas
+- Repositório: [Loja Verde](https://github.com/Dinneiro/Loja_Verde)
+- Demonstração: [Acessar projeto](https://dinneiro.github.io/Loja_Verde/)
 
-HTML5
+### ♟️ Xadrez Institucional
+Projeto de desenvolvimento relacionado a xadrez e interface web.
 
-CSS3
+- [Ver repositório](https://github.com/Dinneiro/Xadrez-Institucional)
 
-JavaScript (ES6+)
+### 🤖 Bot para Telegram
+Projeto de automação e experimentação com bots.
 
-Node.js
+- [Ver repositório](https://github.com/Dinneiro/telegram-bot)
 
-React
+### 📚 Roadmap de estudos
+Organização da minha trajetória de aprendizagem em tecnologia.
 
-Python
+- [Ver repositório](https://github.com/Dinneiro/roadmap-from-ads-and-info)
 
-Git & GitHub
+## Executar localmente
 
-Font Awesome
+1. Clone este repositório:
 
-Google Fonts (Inter & Fira Code)
+   ```bash
+   git clone https://github.com/Dinneiro/Portf-lio.git
+   ```
 
-🎨 Características do Portfólio
+2. Entre na pasta do projeto.
+3. Abra o arquivo `index.html` no navegador.
 
-✔ Layout responsivo (Mobile First)
-✔ Interface moderna com gradientes e efeito glow
-✔ Seção de projetos com destaque visual
-✔ Organização clara e navegação intuitiva
-✔ Integração com GitHub e LinkedIn
+Não é necessário instalar dependências para visualizar a versão estática do portfólio.
 
-📂 Projetos em Destaque
-🗂 Sistema Jurídico Web
+## Publicação com GitHub Pages
 
-Plataforma para gestão de processos e clientes com foco em usabilidade para escritórios de advocacia.
+1. Acesse Settings no repositório.
+2. Entre em Pages.
+3. Selecione a branch principal e a pasta raiz (`/root` ou `/`).
+4. Salve as configurações e aguarde a publicação.
 
-Tecnologias: HTML, CSS, JavaScript
+## Objetivos profissionais
 
-🔐 API de Autenticação
+Estou em constante aprendizado e busco oportunidades para desenvolver minhas habilidades, colaborar em projetos e adquirir experiência prática na área de tecnologia.
 
-Backend estruturado para gerenciamento seguro de usuários.
+## Contato
 
-Tecnologias: Node.js, Express
+- GitHub: [@Dinneiro](https://github.com/Dinneiro)
+- LinkedIn: [Meu perfil](https://www.linkedin.com/in/thiago-silva-8a2724356/)
+- E-mail: thiagosilvafx5@gmail.com
 
-📱 Interface Responsiva
+---
 
-Landing pages modernas adaptáveis para qualquer dispositivo.
-
-Tecnologias: Mobile First, CSS Grid
-
-🌎 Acesse o Projeto
-
-Você pode visualizar o código-fonte aqui:
-
-🔗 GitHub: https://github.com/Dinneiro
-
-🔗 LinkedIn: https://www.linkedin.com/in/thiago-silva-8a2724356/
-
-📬 Contato
-
-Se quiser conversar sobre tecnologia, projetos ou oportunidades:
-
-📧 Email: thiagosilvafx5@gmail.com
-💼 LinkedIn: https://www.linkedin.com/in/thiago-silva-8a2724356/
-
-🏗 Autor
-
-Thiago Silva
-Desenvolvedor focado em construir experiências digitais sólidas, escaláveis e centradas no usuário.
-
-📍 Castanhal - PA
-© 2024
+Desenvolvido por **Thiago Silva**.
