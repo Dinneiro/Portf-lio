@@ -64,7 +64,7 @@ Estou em constante aprendizado e busco oportunidades para desenvolver minhas hab
 ## Contato
 
 - GitHub: [@Dinneiro](https://github.com/Dinneiro)
-- LinkedIn: [Meu perfil](https://www.linkedin.com/in/thiago-silva-8a2724356/)
+- LinkedIn: [Meu perfil](https://www.linkedin.com/in/thiagooliveirabydev/)
 - E-mail: thiagosilvafx5@gmail.com
 
 ---
