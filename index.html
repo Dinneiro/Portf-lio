@@ -1,860 +1,263 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#090d18">
-  <meta name="description" content="Portfólio de Thiago Silva — desenvolvimento web, programação e projetos práticos.">
-  <title>Thiago Silva | Desenvolvedor</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #090d18;
-      --panel: #111827;
-      --text: #edf2ff;
-      --muted: #9ba8bf;
-      --green: #a3ffcb;
-      --blue: #8eb8ff;
-      --line: rgba(190, 207, 255, .13);
-      --radius: 22px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background:
-        radial-gradient(ellipse at 80% 0%, rgba(74,103,180,.16), transparent 34%),
-        radial-gradient(ellipse at 0% 35%, rgba(50,190,130,.08), transparent 32%),
-        var(--bg);
-      color: var(--text);
-      font-family: 'Manrope', sans-serif;
-      line-height: 1.7;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(1120px, calc(100% - 40px));
-      margin: auto;
-    }
-
-    header {
-      height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .logo {
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: -1px;
-    }
-
-    .logo span {
-      color: var(--green);
-    }
-
-    nav {
-      display: flex;
-      gap: 25px;
-      font-size: 13px;
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    nav a:hover,
-    .link:hover {
-      color: var(--green);
-    }
-
-    .status {
-      font: 11px 'DM Mono', monospace;
-      color: var(--green);
-      border: 1px solid rgba(163,255,203,.25);
-      border-radius: 30px;
-      padding: 7px 11px;
-    }
-
-    .hero {
-      padding: 95px 0 70px;
-      display: grid;
-      grid-template-columns: 1.3fr .7fr;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      font: 12px 'DM Mono', monospace;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--green);
-    }
-
-    h1 {
-      font-size: clamp(42px, 6vw, 74px);
-      line-height: 1.08;
-      letter-spacing: -4px;
-      margin: 22px 0;
-    }
-
-    h1 span {
-      color: var(--green);
-    }
-
-    .lead {
-      color: var(--muted);
-      font-size: 16px;
-      max-width: 650px;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 18px;
-      border-radius: 11px;
-      border: 1px solid var(--line);
-      font-size: 13px;
-      font-weight: 800;
-      transition: .2s;
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-    }
-
-    .btn.primary {
-      background: var(--green);
-      color: #08120d;
-      border-color: var(--green);
-    }
-
-    .terminal {
-      background: linear-gradient(145deg, #162134, #0d1320);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 24px;
-      box-shadow: 0 25px 80px rgba(0,0,0,.2);
-      overflow-wrap: anywhere;
-    }
-
-    .terminal-top {
-      color: var(--muted);
-      font: 11px 'DM Mono', monospace;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 15px;
-      margin-bottom: 18px;
-    }
-
-    .code {
-      font: 12px/2 'DM Mono', monospace;
-      color: #d7e2f7;
-    }
-
-    .green {
-      color: var(--green);
-    }
-
-    .purple {
-      color: #c3a6ff;
-    }
-
-    .muted {
-      color: var(--muted);
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 25px;
-    }
-
-    .stat {
-      padding: 14px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: rgba(255,255,255,.025);
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 21px;
-    }
-
-    .stat small {
-      color: var(--muted);
-      font-size: 10px;
-    }
-
-    section {
-      padding: 65px 0;
-    }
-
-    .section-head {
-      margin-bottom: 28px;
-    }
-
-    .section-number {
-      color: var(--green);
-      font: 11px 'DM Mono', monospace;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    h2 {
-      font-size: clamp(29px, 4vw, 42px);
-      letter-spacing: -2px;
-      line-height: 1.2;
-      margin-top: 8px;
-    }
-
-    .section-description {
-      color: var(--muted);
-      font-size: 13px;
-      margin-top: 10px;
-      max-width: 600px;
-    }
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 17px;
-    }
-
-    .project {
-      background: linear-gradient(145deg, rgba(19,29,46,.95), rgba(13,19,31,.95));
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      transition: .25s;
-      min-height: 270px;
-    }
-
-    .project:hover {
-      transform: translateY(-5px);
-      border-color: rgba(163,255,203,.4);
-    }
-
-    .project.featured {
-      grid-column: span 2;
-      min-height: 290px;
-      background:
-        radial-gradient(ellipse at 95% 0%, rgba(163,255,203,.1), transparent 40%),
-        linear-gradient(145deg, #142237, #0d1422);
-    }
-
-    .project-icon {
-      font-size: 25px;
-      width: 48px;
-      height: 48px;
-      display: grid;
-      place-items: center;
-      background: rgba(163,255,203,.1);
-      border: 1px solid rgba(163,255,203,.15);
-      border-radius: 14px;
-    }
-
-    .tag {
-      font: 10px 'DM Mono', monospace;
-      color: var(--green);
-      border: 1px solid rgba(163,255,203,.2);
-      padding: 5px 9px;
-      border-radius: 30px;
-    }
-
-    .project-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    h3 {
-      font-size: 21px;
-      margin: 18px 0 8px;
-      letter-spacing: -.7px;
-    }
-
-    .project p {
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 18px;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-top: auto;
-    }
-
-    .tech {
-      font: 10px 'DM Mono', monospace;
-      color: #c8d3e7;
-      background: rgba(255,255,255,.04);
-      border: 1px solid var(--line);
-      border-radius: 7px;
-      padding: 5px 8px;
-    }
-
-    .project-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    .link {
-      color: var(--green);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .card {
-      border: 1px solid var(--line);
-      background: rgba(17,24,39,.75);
-      border-radius: var(--radius);
-      padding: 26px;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 14px;
-      margin-top: 14px;
-    }
-
-    .principle {
-      padding: 13px 0;
-      border-bottom: 1px solid var(--line);
-      font-size: 13px;
-    }
-
-    .principle:last-child {
-      border-bottom: 0;
-    }
-
-    .principle strong {
-      color: var(--green);
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-
-    .skill-group h4 {
-      font-size: 12px;
-      color: var(--muted);
-      text-transform: uppercase;
-      margin-bottom: 12px;
-      letter-spacing: 1px;
-    }
-
-    .skill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .skill {
-      font-size: 12px;
-      border: 1px solid var(--line);
-      border-radius: 9px;
-      padding: 8px 11px;
-      background: rgba(255,255,255,.025);
-    }
-
-    .contact-box {
-      border: 1px solid rgba(163,255,203,.25);
-      border-radius: 26px;
-      padding: 34px;
-      background:
-        radial-gradient(ellipse at 100% 0%, rgba(163,255,203,.1), transparent 45%),
-        #101827;
-    }
-
-    .contact-box p {
-      color: var(--muted);
-      font-size: 14px;
-      margin-top: 12px;
-      max-width: 650px;
-    }
-
-    footer {
-      margin-top: 50px;
-      padding: 28px 0 38px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 12px;
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-    }
-
-    footer a {
-      color: var(--green);
-    }
-
-    @media (max-width: 760px) {
-      .container {
-        width: calc(100% - 28px);
-      }
-
-      header {
-        height: auto;
-        min-height: 70px;
-        flex-wrap: wrap;
-        gap: 12px;
-        padding: 14px 0;
-      }
-
-      nav {
-        order: 3;
-        width: 100%;
-        overflow-x: auto;
-        gap: 18px;
-        padding: 5px 0;
-      }
-
-      .status {
-        font-size: 9px;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-        padding: 60px 0 40px;
-        gap: 30px;
-      }
-
-      h1 {
-        letter-spacing: -2.5px;
-      }
-
-      .projects {
-        grid-template-columns: 1fr;
-      }
-
-      .project.featured {
-        grid-column: span 1;
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .skills-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-
-      .stats {
-        gap: 7px;
-      }
-
-      .stat {
-        padding: 10px;
-      }
-
-      .stat strong {
-        font-size: 18px;
-      }
-
-      .contact-box {
-        padding: 24px;
-      }
-
-      footer {
-        display: block;
-      }
-
-      footer p + p {
-        margin-top: 8px;
-      }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thiago · Portfólio</title>
+<meta name="description" content="Portfólio de Thiago, aprendiz de programação de Castanhal, Pará. Projetos e atividade lidos direto do GitHub.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=Young+Serif&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light dark;--bg:#e9f2e8;--surface:#f6faf4;--ink:#14301f;--muted:#4a6552;--link:#1b6a42;--line:#c6dac8;--petal:#f7d5de;--petal-ink:#4a1f2d;--accent:#2f8f5b;--warn:#f3e6a6;--warn-ink:#4a3d00;--fd:"Young Serif",Georgia,"Times New Roman",serif;--fb:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+@media(prefers-color-scheme:dark){:root{--bg:#0d1a13;--surface:#13251b;--ink:#e4f1e5;--muted:#9ab4a1;--link:#82dcaa;--line:#23402f;--petal:#3d2430;--petal-ink:#fbdde5;--accent:#5fcf92;--warn:#4a4420;--warn-ink:#f5ecb8}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--fb);-webkit-font-smoothing:antialiased}
+a{color:var(--link);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1040px;margin:0 auto;padding-left:clamp(1.1rem,4vw,2rem);padding-right:clamp(1.1rem,4vw,2rem)}
+.hero{display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(1.5rem,5vw,4rem);padding-top:clamp(2.5rem,8vw,5.5rem);padding-bottom:clamp(2rem,6vw,4rem);align-items:start}
+@media(max-width:780px){.hero{grid-template-columns:1fr}}
+.me{display:flex;align-items:center;gap:1rem;margin:0 0 1.5rem;color:var(--muted);font-size:.95rem}
+.me img{width:64px;height:64px;border-radius:50%;border:3px solid var(--bg);box-shadow:0 0 0 2px var(--accent);background:var(--line)}
+h1{font:400 clamp(2.5rem,7vw,4.4rem)/1.04 var(--fd);margin:0 0 1.2rem;letter-spacing:-.015em;text-wrap:balance}
+.bio{font-size:1.2rem;max-width:34rem;margin:0 0 .9rem}
+.liveline{color:var(--muted);max-width:34rem;margin:0 0 1.6rem}
+.links{display:flex;flex-wrap:wrap;gap:.7rem}
+.btn{display:inline-block;padding:.7rem 1.2rem;border-radius:999px;font:700 1rem/1.2 var(--fb);text-decoration:none;border:2px solid var(--ink);color:var(--ink);background:transparent;cursor:pointer}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.btn:hover{background:var(--petal);color:var(--petal-ink);border-color:var(--petal-ink)}
+.now{background:var(--petal);color:var(--petal-ink);border-radius:28px 28px 28px 6px;padding:1.6rem 1.7rem}
+.now h2{font:700 .95rem/1.3 var(--fb);margin:0 0 1rem;display:flex;align-items:center;gap:.6rem}
+.pulse{flex:none;width:.7rem;height:.7rem;border-radius:50%;background:#2f8f5b;animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(47,143,91,.6)}70%,100%{box-shadow:0 0 0 .7rem rgba(47,143,91,0)}}
+.now-msg{font:400 1.5rem/1.25 var(--fd);margin:0 0 .9rem;overflow-wrap:anywhere}
+.now-meta{margin:0;font-size:.95rem}
+.now a{color:inherit}
+section{padding-top:clamp(1.8rem,5vw,3rem);padding-bottom:clamp(1.8rem,5vw,3rem);border-top:1px solid var(--line)}
+.sec{font:400 clamp(1.6rem,3.5vw,2.1rem)/1.2 var(--fd);margin:0 0 1.4rem}
+.repos{list-style:none;margin:0;padding:0}
+.repo{display:grid;grid-template-columns:1fr auto;gap:.3rem 1.5rem;padding:1.3rem 0;border-bottom:1px solid var(--line)}
+.repo:first-child{padding-top:0}
+.repo:last-child{border-bottom:0}
+.repo h3{font:400 1.45rem/1.2 var(--fd);margin:0}
+.repo h3 a{color:var(--ink);text-decoration:none}
+.repo h3 a:hover{text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:3px}
+.repo p{margin:0;color:var(--muted);max-width:42rem}
+.rmeta{grid-column:2;grid-row:1/span 2;font-size:.92rem;color:var(--muted);display:flex;flex-direction:column;gap:.3rem;align-items:flex-end;text-align:right}
+@media(max-width:640px){.repo{grid-template-columns:1fr}.rmeta{grid-column:1;grid-row:auto;flex-direction:row;flex-wrap:wrap;align-items:center;text-align:left;gap:.3rem 1rem}}
+.lang{display:inline-flex;align-items:center;gap:.4rem}
+.ld{width:.7rem;height:.7rem;border-radius:50%;background:var(--c,#8aa)}
+.bar{display:flex;height:16px;border-radius:999px;overflow:hidden;background:var(--line);gap:2px}
+.bar i{display:block;background:var(--c);min-width:8px}
+.legend{list-style:none;padding:0;margin:1rem 0 0;display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;color:var(--muted)}
+.feed{list-style:none;margin:0;padding:0 0 0 1.4rem;border-left:2px solid var(--line)}
+.feed li{position:relative;padding:0 0 1.2rem 1rem}
+.feed li::before{content:"";position:absolute;left:calc(-1.4rem - 1px);top:.55rem;width:.7rem;height:.7rem;border-radius:50%;background:var(--accent);transform:translateX(-50%)}
+.feed b{font-weight:700;overflow-wrap:anywhere}
+.feed .t{display:block;color:var(--muted);font-size:.9rem}
+.err{background:var(--warn);color:var(--warn-ink);border-radius:14px;padding:1rem 1.2rem;margin:0 0 1.5rem}
+.muted{color:var(--muted)}
+footer{border-top:1px solid var(--line);padding-top:1.8rem;padding-bottom:3rem;color:var(--muted);font-size:.95rem}
+footer p{margin:0 0 1rem;max-width:40rem}
+footer .btn{font-size:.9rem;padding:.5rem 1rem}
+@media(prefers-reduced-motion:reduce){.pulse{animation:none}html{scroll-behavior:auto}}
+</style>
 </head>
-
 <body>
 
-<header class="container">
-  <a href="#inicio" class="logo">thiago<span>.dev</span></a>
-
-  <nav aria-label="Navegação principal">
-    <a href="#projetos">Projetos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#habilidades">Habilidades</a>
-    <a href="#contato">Contato</a>
-  </nav>
-
-  <div class="status">● ABERTO A OPORTUNIDADES</div>
+<header class="wrap hero">
+  <div>
+    <div class="me"><img id="avatar" alt="" width="64" height="64"><span id="loc"></span></div>
+    <h1 id="title">Oi, eu sou o Thiago.</h1>
+    <p class="bio" id="bio">Aprendiz de programação, aprendendo construindo.</p>
+    <p class="liveline" id="liveLine">Buscando os dados no GitHub…</p>
+    <div class="links">
+      <a class="btn primary" id="ghLink" href="https://github.com/Dinneiro">Ver o GitHub</a>
+      <a class="btn" id="liLink" href="https://www.linkedin.com/in/thiago-silva-8a2724356/">Falar no LinkedIn</a>
+    </div>
+  </div>
+  <aside class="now" aria-live="polite">
+    <h2><span class="pulse" aria-hidden="true"></span>Último movimento no GitHub</h2>
+    <p class="now-msg" id="nowMsg">Carregando…</p>
+    <p class="now-meta" id="nowMeta"></p>
+  </aside>
 </header>
 
-<main>
-  <section class="container hero" id="inicio">
-    <div>
-      <div class="eyebrow">Desenvolvimento · Aprendizado contínuo</div>
+<main class="wrap">
+  <div class="err" id="err" role="alert" hidden>
+    Não consegui falar com o GitHub agora. Pode ser o limite de requisições ou falta de conexão. Tente de novo em alguns minutos ou veja direto em <a href="https://github.com/Dinneiro">github.com/Dinneiro</a>.
+  </div>
 
-      <h1>
-        Transformo ideias em
-        <span>projetos reais.</span>
-      </h1>
-
-      <p class="lead">
-        Olá! Sou Thiago Silva, estudante e desenvolvedor em evolução,
-        de Castanhal–PA. Gosto de aprender construindo projetos,
-        explorar tecnologias e transformar problemas em soluções práticas.
-      </p>
-
-      <div class="actions">
-        <a href="#projetos" class="btn primary">Explorar projetos ↘</a>
-        <a href="https://github.com/Dinneiro" class="btn" target="_blank" rel="noopener noreferrer">Meu GitHub ↗</a>
-      </div>
-
-      <div class="stats">
-        <div class="stat">
-          <strong>Web</strong>
-          <small>Desenvolvimento</small>
-        </div>
-        <div class="stat">
-          <strong>JS</strong>
-          <small>Programação</small>
-        </div>
-        <div class="stat">
-          <strong>∞</strong>
-          <small>Aprendizado</small>
-        </div>
-      </div>
-    </div>
-
-    <aside class="terminal">
-      <div class="terminal-top">● ● ● &nbsp; thiago-profile.js</div>
-
-      <div class="code">
-        <div class="muted">// um pouco sobre mim</div>
-        <div><span class="green">const</span> developer = {</div>
-        <div>&nbsp;&nbsp;nome: <span class="purple">"Thiago Silva"</span>,</div>
-        <div>&nbsp;&nbsp;local: <span class="purple">"Castanhal, PA"</span>,</div>
-        <div>&nbsp;&nbsp;interesses: [</div>
-        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">"Desenvolvimento Web"</span>,</div>
-        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">"JavaScript"</span>,</div>
-        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">"Python"</span></div>
-        <div>&nbsp;&nbsp;],</div>
-        <div>&nbsp;&nbsp;objetivo: <span class="purple">"Evoluir sempre"</span></div>
-        <div>};</div>
-        <br>
-        <div class="green">▍ Construindo o próximo projeto...</div>
-      </div>
-    </aside>
+  <section aria-labelledby="h-proj">
+    <h2 class="sec" id="h-proj">Projetos</h2>
+    <ul class="repos" id="repos"><li class="muted">Carregando projetos…</li></ul>
   </section>
 
-  <section class="container" id="projetos">
-    <div class="section-head">
-      <div class="section-number">01 / Portfólio</div>
-      <h2>Projetos em destaque</h2>
-      <p class="section-description">
-        Projetos de estudo e desenvolvimento que representam minha
-        trajetória, minha curiosidade e minha prática com tecnologia.
-      </p>
-    </div>
-
-    <div class="projects">
-
-      <article class="project featured">
-        <div class="project-top">
-          <div class="project-icon">🌿</div>
-          <span class="tag">PROJETO PRINCIPAL</span>
-        </div>
-
-        <h3>Loja Verde — E-commerce</h3>
-
-        <p>
-          Projeto de loja virtual voltada ao segmento de jardinagem.
-          Uma oportunidade de trabalhar estrutura de páginas, experiência
-          do usuário e funcionalidades de comércio eletrônico.
-        </p>
-
-        <div class="tags">
-          <span class="tech">HTML</span>
-          <span class="tech">CSS</span>
-          <span class="tech">JavaScript</span>
-          <span class="tech">Node.js</span>
-        </div>
-
-        <div class="project-links">
-          <a class="link" href="https://dinneiro.github.io/Loja_Verde/" target="_blank" rel="noopener noreferrer">Ver demonstração ↗</a>
-          <a class="link" href="https://github.com/Dinneiro/Loja_Verde" target="_blank" rel="noopener noreferrer">Código-fonte ↗</a>
-        </div>
-      </article>
-
-      <article class="project">
-        <div class="project-top">
-          <div class="project-icon">♟️</div>
-          <span class="tag">WEB</span>
-        </div>
-
-        <h3>Xadrez Institucional</h3>
-
-        <p>
-          Projeto relacionado ao xadrez, desenvolvido como exercício
-          de programação e organização de uma aplicação.
-        </p>
-
-        <div class="tags">
-          <span class="tech">Programação</span>
-          <span class="tech">Lógica</span>
-          <span class="tech">GitHub</span>
-        </div>
-
-        <div class="project-links">
-          <a class="link" href="https://github.com/Dinneiro/Xadrez-Institucional" target="_blank" rel="noopener noreferrer">Ver repositório ↗</a>
-        </div>
-      </article>
-
-      <article class="project">
-        <div class="project-top">
-          <div class="project-icon">🤖</div>
-          <span class="tag">AUTOMAÇÃO</span>
-        </div>
-
-        <h3>Bot para Telegram</h3>
-
-        <p>
-          Projeto de experimentação com bots e automação de interações
-          por mensagens, explorando possibilidades de integração.
-        </p>
-
-        <div class="tags">
-          <span class="tech">Python</span>
-          <span class="tech">Telegram</span>
-          <span class="tech">APIs</span>
-        </div>
-
-        <div class="project-links">
-          <a class="link" href="https://github.com/Dinneiro/telegram-bot" target="_blank" rel="noopener noreferrer">Ver repositório ↗</a>
-        </div>
-      </article>
-
-      <article class="project">
-        <div class="project-top">
-          <div class="project-icon">📚</div>
-          <span class="tag">ESTUDOS</span>
-        </div>
-
-        <h3>Roadmap de Tecnologia</h3>
-
-        <p>
-          Organização de uma trilha de aprendizagem em tecnologia,
-          com foco em estudos contínuos e desenvolvimento de habilidades.
-        </p>
-
-        <div class="tags">
-          <span class="tech">Estudos</span>
-          <span class="tech">Documentação</span>
-          <span class="tech">Planejamento</span>
-        </div>
-
-        <div class="project-links">
-          <a class="link" href="https://github.com/Dinneiro/roadmap-from-ads-and-info" target="_blank" rel="noopener noreferrer">Ver repositório ↗</a>
-        </div>
-      </article>
-
-      <article class="project">
-        <div class="project-top">
-          <div class="project-icon">💻</div>
-          <span class="tag">PORTFÓLIO</span>
-        </div>
-
-        <h3>Portfólio pessoal</h3>
-
-        <p>
-          Meu espaço profissional para apresentar projetos,
-          tecnologias estudadas e formas de contato.
-        </p>
-
-        <div class="tags">
-          <span class="tech">HTML5</span>
-          <span class="tech">CSS3</span>
-          <span class="tech">JavaScript</span>
-        </div>
-
-        <div class="project-links">
-          <a class="link" href="https://github.com/Dinneiro/Portf-lio" target="_blank" rel="noopener noreferrer">Ver repositório ↗</a>
-        </div>
-      </article>
-
-    </div>
+  <section aria-labelledby="h-lang">
+    <h2 class="sec" id="h-lang">Linguagens nos projetos</h2>
+    <div class="bar" id="bar" role="img" aria-label="Proporção de projetos por linguagem"></div>
+    <ul class="legend" id="legend"></ul>
   </section>
 
-  <section class="container" id="sobre">
-    <div class="section-head">
-      <div class="section-number">02 / Sobre mim</div>
-      <h2>Curiosidade com execução.</h2>
-    </div>
-
-    <div class="about-grid">
-      <div class="card">
-        <h3>Quem sou eu?</h3>
-
-        <p>
-          Sou Thiago Silva, estudante interessado em desenvolvimento
-          de software, tecnologia e resolução de problemas.
-          Busco transformar o conhecimento adquirido nos estudos
-          em projetos práticos.
-        </p>
-
-        <p>
-          Quero continuar evoluindo tecnicamente, aprender boas práticas
-          e colaborar com pessoas e equipes em projetos que gerem valor.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Minha forma de trabalhar</h3>
-
-        <div class="principle">
-          <strong>01 — Aprender</strong><br>
-          Estudar conceitos e aplicar o conhecimento.
-        </div>
-
-        <div class="principle">
-          <strong>02 — Construir</strong><br>
-          Transformar ideias em projetos práticos.
-        </div>
-
-        <div class="principle">
-          <strong>03 — Melhorar</strong><br>
-          Testar, corrigir erros e aperfeiçoar soluções.
-        </div>
-
-        <div class="principle">
-          <strong>04 — Compartilhar</strong><br>
-          Documentar projetos e aprender com a comunidade.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="container" id="habilidades">
-    <div class="section-head">
-      <div class="section-number">03 / Tecnologias</div>
-      <h2>Ferramentas da minha jornada</h2>
-      <p class="section-description">
-        Tecnologias estudadas e exploradas durante minha trajetória
-        de desenvolvimento.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="skills-grid">
-
-        <div class="skill-group">
-          <h4>Front-end</h4>
-          <div class="skill-list">
-            <span class="skill">HTML5</span>
-            <span class="skill">CSS3</span>
-            <span class="skill">JavaScript</span>
-            <span class="skill">Responsividade</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <h4>Back-end</h4>
-          <div class="skill-list">
-            <span class="skill">Node.js</span>
-            <span class="skill">Express</span>
-            <span class="skill">Python</span>
-            <span class="skill">APIs</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <h4>Ferramentas</h4>
-          <div class="skill-list">
-            <span class="skill">Git</span>
-            <span class="skill">GitHub</span>
-            <span class="skill">VS Code</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <h4>Desenvolvimento</h4>
-          <div class="skill-list">
-            <span class="skill">Lógica</span>
-            <span class="skill">Depuração</span>
-            <span class="skill">Documentação</span>
-            <span class="skill">Aprendizado contínuo</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="container" id="contato">
-    <div class="contact-box">
-      <div class="section-number">04 / Contato</div>
-
-      <h2>Vamos construir algo juntos?</h2>
-
-      <p>
-        Estou buscando oportunidades para aprender, desenvolver
-        minhas habilidades e contribuir com projetos de tecnologia.
-        Se você deseja conversar sobre uma oportunidade ou colaboração,
-        entre em contato.
-      </p>
-
-      <div class="actions">
-        <a class="btn primary" href="mailto:thiagosilvafx5@gmail.com">Enviar e-mail ↗</a>
-
-        <a class="btn" href="https://github.com/Dinneiro" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-
-        <a class="btn" href="https://www.linkedin.com/in/thiago-silva-8a2724356/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-      </div>
-    </div>
+  <section aria-labelledby="h-feed">
+    <h2 class="sec" id="h-feed">Atividade recente</h2>
+    <ol class="feed" id="feed"><li class="muted">Carregando atividade…</li></ol>
   </section>
 </main>
 
-<footer class="container">
-  <p>© <span id="year"></span> Thiago Silva. Desenvolvido com dedicação.</p>
-  <p>Castanhal, Pará, Brasil · <a href="https://github.com/Dinneiro">GitHub</a></p>
+<footer class="wrap">
+  <p>Tudo aqui vem da API pública do GitHub. A página busca os dados ao abrir e de novo a cada 5 minutos, então um commit novo aparece sem eu precisar editar nada. Última sincronização: <span id="stamp">—</span>.</p>
+  <button class="btn" id="refresh" type="button">Atualizar agora</button>
 </footer>
+<noscript><p class="wrap">Esta página precisa de JavaScript para mostrar os projetos. Veja tudo em <a href="https://github.com/Dinneiro">github.com/Dinneiro</a>.</p></noscript>
 
 <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+/* ---------- Configuração: só mexa aqui ---------- */
+const CFG = {
+  user: "Dinneiro",
+  name: "Thiago",                       // vazio = usa o nome do perfil do GitHub
+  linkedin: "https://www.linkedin.com/in/thiago-silva-8a2724356/",
+  hide: ["Dinneiro"],                   // repositórios que não entram na lista (ex.: o do README do perfil)
+  showForks: false,
+  refreshMs: 5 * 60 * 1000
+};
 
+const COLORS = {JavaScript:"#f1e05a",HTML:"#e34c26",CSS:"#563d7c",Python:"#3572A5",TypeScript:"#3178c6","C#":"#178600",Java:"#b07219",PHP:"#4F5D95",Shell:"#89e051",Go:"#00ADD8",Rust:"#dea584","C++":"#f34b7d",C:"#888"};
+const $ = id => document.getElementById(id);
+const rtf = new Intl.RelativeTimeFormat("pt-BR", {numeric: "auto"});
+const pl = (n, s, p) => n + " " + (n === 1 ? s : p);
+
+function h(tag, props = {}, ...kids) {
+  const el = document.createElement(tag);
+  for (const [k, v] of Object.entries(props)) {
+    if (v == null || v === false) continue;
+    k === "class" ? (el.className = v) : el.setAttribute(k, v);
+  }
+  el.append(...kids.flat().filter(x => x != null && x !== false));
+  return el;
+}
+
+function ago(iso) {
+  const s = (new Date(iso) - Date.now()) / 1000, a = Math.abs(s);
+  const steps = [[60,"second",1],[3600,"minute",60],[86400,"hour",3600],[2592000,"day",86400],[31536000,"month",2592000],[Infinity,"year",31536000]];
+  for (const [lim, unit, div] of steps) if (a < lim) return rtf.format(Math.round(s / div), unit);
+}
+
+async function gh(path) {
+  const key = "gh:" + path;
+  let cached = null;
+  try { cached = JSON.parse(sessionStorage.getItem(key)); } catch (e) {}
+  if (cached && Date.now() - cached.t < CFG.refreshMs - 1000) return cached.d;
+  try {
+    const r = await fetch("https://api.github.com" + path, {headers: {Accept: "application/vnd.github+json"}});
+    if (!r.ok) throw new Error(r.status);
+    const d = await r.json();
+    try { sessionStorage.setItem(key, JSON.stringify({t: Date.now(), d})); } catch (e) {}
+    return d;
+  } catch (err) {
+    if (cached) return cached.d;   // usa a última cópia salva se o GitHub falhar
+    throw err;
+  }
+}
+
+function describe(e) {
+  const repo = e.repo.name.split("/")[1], p = e.payload || {};
+  switch (e.type) {
+    case "PushEvent": {
+      const cs = p.commits || [], last = cs[cs.length - 1], n = p.size || cs.length;
+      const msg = last ? last.message.split("\n")[0] : "Enviou alterações";
+      return {repo, text: msg + (n > 1 ? " (+" + (n - 1) + (n === 2 ? " commit)" : " commits)") : "")};
+    }
+    case "CreateEvent":
+      return {repo, text: p.ref_type === "repository" ? "Criou o repositório" : "Criou " + (p.ref_type === "branch" ? "a branch " : "a tag ") + p.ref};
+    case "WatchEvent": return {repo, text: "Favoritou um repositório"};
+    case "ForkEvent": return {repo, text: "Fez um fork"};
+    case "PullRequestEvent": return {repo, text: "Pull request " + (p.action === "opened" ? "aberto" : p.action === "closed" ? "fechado" : "atualizado")};
+    case "IssuesEvent": return {repo, text: "Issue " + (p.action === "opened" ? "aberta" : p.action === "closed" ? "fechada" : "atualizada")};
+    default: return null;
+  }
+}
+
+function render(u, repos, events) {
+  const name = CFG.name || u.name || u.login;
+  document.title = name + " · Portfólio";
+  $("title").textContent = "Oi, eu sou o " + name + ".";
+  if (u.bio) $("bio").textContent = u.bio;
+  $("loc").textContent = u.location || "";
+  $("avatar").src = u.avatar_url + "&s=128";
+  $("ghLink").href = u.html_url;
+  $("liLink").href = CFG.linkedin;
+
+  const lastPush = repos.map(r => r.pushed_at).sort().pop();
+  $("liveLine").textContent = "Tem " + pl(u.public_repos, "repositório público", "repositórios públicos") +
+    " no GitHub" + (lastPush ? " e a última atualização foi " + ago(lastPush) + "." : ".");
+
+  // Último movimento
+  const evs = events.map(e => ({e, d: describe(e)})).filter(x => x.d);
+  const push = evs.find(x => x.e.type === "PushEvent") || evs[0];
+  const repoLink = full => h("a", {href: "https://github.com/" + full}, full.split("/")[1]);
+  if (push) {
+    $("nowMsg").textContent = push.d.text;
+    $("nowMeta").replaceChildren("em ", repoLink(push.e.repo.name), ", " + ago(push.e.created_at));
+  } else if (lastPush) {
+    const r = repos.find(x => x.pushed_at === lastPush);
+    $("nowMsg").textContent = "Atualizou o projeto " + r.name;
+    $("nowMeta").replaceChildren("em ", repoLink(u.login + "/" + r.name), ", " + ago(lastPush));
+  }
+
+  // Projetos
+  const list = repos
+    .filter(r => !CFG.hide.includes(r.name) && (CFG.showForks || !r.fork))
+    .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
+  $("repos").replaceChildren(...(list.length ? list.map(r => {
+    const live = r.homepage || (r.has_pages && !/\.github\.io$/i.test(r.name) ? "https://" + u.login.toLowerCase() + ".github.io/" + r.name + "/" : "");
+    return h("li", {class: "repo"},
+      h("h3", {}, h("a", {href: r.html_url}, r.name)),
+      h("p", {}, r.description || "Sem descrição ainda."),
+      h("div", {class: "rmeta"},
+        r.language ? h("span", {class: "lang"}, h("span", {class: "ld", style: "--c:" + (COLORS[r.language] || "#8aa")}), r.language) : null,
+        h("span", {}, "atualizado " + ago(r.pushed_at)),
+        r.stargazers_count ? h("span", {}, pl(r.stargazers_count, "estrela", "estrelas")) : null,
+        live ? h("a", {href: live}, "ver ao vivo") : null));
+  }) : [h("li", {class: "muted"}, "Nenhum projeto público ainda.")]));
+
+  // Linguagens
+  const counts = {};
+  list.forEach(r => { if (r.language) counts[r.language] = (counts[r.language] || 0) + 1; });
+  const langs = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+  $("bar").replaceChildren(...langs.map(([l, n]) => h("i", {title: l + ": " + pl(n, "projeto", "projetos"), style: "--c:" + (COLORS[l] || "#8aa") + ";flex:" + n})));
+  $("legend").replaceChildren(...langs.map(([l, n]) => h("li", {class: "lang"}, h("span", {class: "ld", style: "--c:" + (COLORS[l] || "#8aa")}), l + ", " + pl(n, "projeto", "projetos"))));
+
+  // Atividade
+  $("feed").replaceChildren(...(evs.length ? evs.slice(0, 8).map(({e, d}) =>
+    h("li", {}, h("b", {}, d.text), h("span", {class: "t"}, d.repo + ", " + ago(e.created_at)))
+  ) : [h("li", {class: "muted"}, "Sem atividade pública nos últimos 90 dias.")]));
+}
+
+async function load() {
+  try {
+    const [u, repos, events] = await Promise.all([
+      gh("/users/" + CFG.user),
+      gh("/users/" + CFG.user + "/repos?per_page=100&sort=pushed"),
+      gh("/users/" + CFG.user + "/events/public?per_page=30").catch(() => [])
+    ]);
+    render(u, repos, events);
+    $("err").hidden = true;
+    $("stamp").textContent = new Date().toLocaleTimeString("pt-BR", {hour: "2-digit", minute: "2-digit"});
+  } catch (e) {
+    $("err").hidden = false;
+  }
+}
+
+$("refresh").addEventListener("click", () => {
+  try { Object.keys(sessionStorage).filter(k => k.startsWith("gh:")).forEach(k => sessionStorage.removeItem(k)); } catch (e) {}
+  load();
+});
+document.addEventListener("visibilitychange", () => { if (!document.hidden) load(); });
+setInterval(load, CFG.refreshMs);
+load();
+</script>
 </body>
 </html>
